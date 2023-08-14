@@ -1,6 +1,6 @@
 # Can I Check [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
 > A collection of awesome one-liner scripts especially for bug bounty.
-> Thanks for visiting my repository! If you find my work useful, please consider buying me a coffee to support my future projects.
+> Thanks for visiting my repository! If you find my and other work useful, please consider buying me a coffee to support my future projects.
 
 <a href="https://www.buymeacoffee.com/SecuritySphinx" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
